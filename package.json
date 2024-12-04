@@ -16,7 +16,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "deploy:prod": "npm run build && vercel ./build --confirm --no-clipboard"
+    "deploy:prod": "npm run build && vercel ./build --yes --no-clipboard"
   },
   "devDependencies": {
     "eslint": "^9",
