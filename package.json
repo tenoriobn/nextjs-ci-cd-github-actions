@@ -15,7 +15,9 @@
     "build": "rd /s /q build && next build && move out build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "deploy:prod": "yarn deploy --prod --token=$VERCEL_TOKEN",
+    "deploy": "yarn build && npx vercel ./build --confirm --no-clipboard"
   },
   "devDependencies": {
     "eslint": "^9",
