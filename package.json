@@ -1,5 +1,6 @@
 {
   "name": "nextjs-ci-cd-github-actions",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Bruno Tenório <tenoriobn@gmail.com>",
@@ -12,15 +13,18 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "rd /s /q build && next build && move out build",
+    "build": "next build && mv ./out ./build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "deploy:prod": "yarn deploy:staging --prod",
+    "deploy:staging": "yarn build && vercel ./build --confirm --no-clipboard --token=$VERCEL_TOKEN",
+    "deploy:preview": "node ./scripts/pullRequestPreview"
   },
   "devDependencies": {
     "eslint": "^9",
     "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.4.1"
+    "prettier": "^3.4.1" 
   }
 }
